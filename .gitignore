@@ -1,0 +1,10 @@
+.vs/*
+/*/Debug/*
+*.log
+*.o
+*.map
+*.hex
+*.lss
+*.srec
+*.d
+/*/Release/*

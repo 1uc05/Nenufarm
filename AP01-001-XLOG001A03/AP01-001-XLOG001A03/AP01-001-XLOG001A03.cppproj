@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>7.0</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRGCC8.CPP</ToolchainName>
+    <ProjectGuid>dce6c7e3-ee26-4d79-826b-08594b9ad897</ProjectGuid>
+    <avrdevice>ATtiny3217</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>CPP</Language>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AssemblyName>AP01-001-XLOG001A03</AssemblyName>
+    <Name>AP01-001-XLOG001A03</Name>
+    <RootNamespace>AP01-001-XLOG001A03</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
+    <UncachedRange />
+    <preserveEEPROM>true</preserveEEPROM>
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
+    <BootSegment>2</BootSegment>
+    <ResetRule>0</ResetRule>
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <EraseKey />
+    <AsfFrameworkConfig>
+      <framework-data xmlns="">
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.52.0" />
+        </dependencies>
+      </framework-data>
+    </AsfFrameworkConfig>
+    <avrtool>com.atmel.avrdbg.tool.pickit4</avrtool>
+    <avrtoolserialnumber>BUR211973612</avrtoolserialnumber>
+    <avrdeviceexpectedsignature>0x1E9522</avrdeviceexpectedsignature>
+    <avrtoolinterface>UPDI</avrtoolinterface>
+    <com_atmel_avrdbg_tool_pickit4>
+      <ToolOptions>
+        <InterfaceProperties>
+          <UpdiClock>750000</UpdiClock>
+        </InterfaceProperties>
+        <InterfaceName>UPDI</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.pickit4</ToolType>
+      <ToolNumber>BUR211973612</ToolNumber>
+      <ToolName>MPLAB® PICkit 4</ToolName>
+    </com_atmel_avrdbg_tool_pickit4>
+    <avrtoolinterfaceclock>750000</avrtoolinterfaceclock>
+    <UseGdb>True</UseGdb>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrGccCpp>
+        <avrgcc.common.Device>-mmcu=attiny3217 -B "%24(PackRepoDir)\Atmel\ATtiny_DFP\2.0.368\gcc\dev\attiny3217"</avrgcc.common.Device>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\Atmel\ATtiny_DFP\2.0.368\include\</Value>
+            <Value>..</Value>
+            <Value>../Driver/drvPTC</Value>
+            <Value>../Driver/drvPTC/include</Value>
+            <Value>../Driver/drvUSART</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+          </ListValues>
+        </avrgcccpp.compiler.symbols.DefSymbols>
+        <avrgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\Atmel\ATtiny_DFP\2.0.368\include\</Value>
+            <Value>..</Value>
+            <Value>../Class</Value>
+            <Value>../Driver/drvADC</Value>
+            <Value>../Driver/drvFlash</Value>
+            <Value>../Driver/drvHardware</Value>
+            <Value>../Driver/drvPTC</Value>
+            <Value>../Driver/drvPTC/include</Value>
+            <Value>../Driver/drvPWM</Value>
+            <Value>../Driver/drvRPM</Value>
+            <Value>../Driver/drvRTC</Value>
+            <Value>../Driver/drvTimerSysteme</Value>
+            <Value>../Driver/drvUSART</Value>
+          </ListValues>
+        </avrgcccpp.compiler.directories.IncludePaths>
+        <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
+        <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
+        <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+        <avrgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11</avrgcccpp.compiler.miscellaneous.OtherFlags>
+        <avrgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+            <Value>libqtm_acq_runtime_t3217_0x0018.a</Value>
+            <Value>libqtm_freq_hop_auto_t3217_0x0004.a</Value>
+            <Value>libqtm_touch_key_t3217_0x0002.a</Value>
+          </ListValues>
+        </avrgcccpp.linker.libraries.Libraries>
+        <avrgcccpp.linker.libraries.LibrarySearchPaths>
+          <ListValues>
+            <Value>../Driver/drvPTC/lib/gcc</Value>
+            <Value>../Driver/drvPTC/include</Value>
+          </ListValues>
+        </avrgcccpp.linker.libraries.LibrarySearchPaths>
+        <avrgcccpp.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\Atmel\ATtiny_DFP\2.0.368\include\</Value>
+          </ListValues>
+        </avrgcccpp.assembler.general.IncludePaths>
+      </AvrGccCpp>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrGccCpp>
+        <avrgcc.common.Device>-mmcu=attiny3217 -B "%24(PackRepoDir)\Atmel\ATtiny_DFP\2.0.368\gcc\dev\attiny3217"</avrgcc.common.Device>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\Atmel\ATtiny_DFP\2.0.368\include\</Value>
+            <Value>..</Value>
+            <Value>../Driver/drvPTC</Value>
+            <Value>../Driver/drvPTC/include</Value>
+            <Value>../Driver/drvUSART</Value>
+            <Value>../Driver/drvADC</Value>
+            <Value>../Driver/drvHardware</Value>
+            <Value>../Driver/drvPWM</Value>
+            <Value>../Driver/drvRPM</Value>
+            <Value>../Driver/drvRTC</Value>
+            <Value>../Driver/drvTimerSysteme</Value>
+            <Value>../Driver/drvFlash</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\Atmel\ATtiny_DFP\2.0.368\include\</Value>
+            <Value>..</Value>
+            <Value>../Class</Value>
+            <Value>../Driver/drvADC</Value>
+            <Value>../Driver/drvFlash</Value>
+            <Value>../Driver/drvHardware</Value>
+            <Value>../Driver/drvPTC</Value>
+            <Value>../Driver/drvPTC/include</Value>
+            <Value>../Driver/drvPWM</Value>
+            <Value>../Driver/drvRPM</Value>
+            <Value>../Driver/drvRTC</Value>
+            <Value>../Driver/drvTimerSysteme</Value>
+            <Value>../Driver/drvUSART</Value>
+          </ListValues>
+        </avrgcccpp.compiler.directories.IncludePaths>
+        <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
+        <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+        <avrgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11</avrgcccpp.compiler.miscellaneous.OtherFlags>
+        <avrgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+            <Value>libqtm_acq_runtime_t3217_0x0018.a</Value>
+            <Value>libqtm_freq_hop_auto_t3217_0x0004.a</Value>
+            <Value>libqtm_touch_key_t3217_0x0002.a</Value>
+          </ListValues>
+        </avrgcccpp.linker.libraries.Libraries>
+        <avrgcccpp.linker.libraries.LibrarySearchPaths>
+          <ListValues>
+            <Value>../Driver/drvPTC/lib/gcc</Value>
+            <Value>C:\Users\ValentinDominiak\Desktop\AP01-001-XLOG001A03\AP01-001-XLOG001A03\Driver\drvPTC\lib\gcc</Value>
+          </ListValues>
+        </avrgcccpp.linker.libraries.LibrarySearchPaths>
+        <avrgcccpp.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\Atmel\ATtiny_DFP\2.0.368\include\</Value>
+          </ListValues>
+        </avrgcccpp.assembler.general.IncludePaths>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.optimization.level>Optimize debugging experience (-Og)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.DebugLevel>Maximum (-g3)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </avrgcccpp.compiler.symbols.DefSymbols>
+        <avrgcccpp.compiler.optimization.level>Optimize debugging experience (-Og)</avrgcccpp.compiler.optimization.level>
+        <avrgcccpp.compiler.optimization.DebugLevel>Maximum (-g3)</avrgcccpp.compiler.optimization.DebugLevel>
+        <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
+      </AvrGccCpp>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Class\AquaLight.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\AquaLight.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\Button.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\Button.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\Handler.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\Handler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\HandlerClient.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\HandlerClient.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\HandlerProd.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\HandlerProd.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\Memory.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\Memory.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\PlantLight.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\PlantLight.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\Pump.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\Pump.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\Scheduler.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\Scheduler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\StartManager.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Class\StartManager.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="definitionTypes.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvADC\drvADC.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvADC\drvADC.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvFlash\drvFlash.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvFlash\drvFlash.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvHardware\drvHardware.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvHardware\drvHardware.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvPWM\drvPWM.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvPWM\drvPWM.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvRPM\drvRPM.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvRPM\drvRPM.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvRTC\drvRTC.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvRTC\drvRTC.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvTimerSysteme\drvTimerSysteme.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvTimerSysteme\drvTimerSysteme.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvPTC\include\qtm_acq_t161x_0x0017_api.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvPTC\include\qtm_acq_t321x_0x0017_api.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvPTC\include\qtm_common_components_api.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvPTC\include\qtm_freq_hop_auto_0x0004_api.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvPTC\include\qtm_touch_key_0x0002_api.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvPTC\drvPTC.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvPTC\drvPTC.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvUSART\drvUSART.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\drvUSART\drvUSART.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="main.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Driver" />
+    <Folder Include="Driver\drvHardware" />
+    <Folder Include="Driver\drvPWM" />
+    <Folder Include="Driver\drvADC" />
+    <Folder Include="Driver\drvRPM" />
+    <Folder Include="Driver\drvRTC" />
+    <Folder Include="Driver\drvTimerSysteme" />
+    <Folder Include="Driver\drvPTC" />
+    <Folder Include="Driver\drvPTC\include" />
+    <Folder Include="Driver\drvPTC\lib" />
+    <Folder Include="Driver\drvPTC\lib\gcc" />
+    <Folder Include="Class" />
+    <Folder Include="Driver\drvFlash" />
+    <Folder Include="Driver\drvUSART" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Driver\drvPTC\lib\gcc\libqtm_acq_runtime_t3217_0x0018.a">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Driver\drvPTC\lib\gcc\libqtm_freq_hop_auto_t3217_0x0004.a">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Driver\drvPTC\lib\gcc\libqtm_touch_key_t3217_0x0002.a">
+      <SubType>compile</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>
