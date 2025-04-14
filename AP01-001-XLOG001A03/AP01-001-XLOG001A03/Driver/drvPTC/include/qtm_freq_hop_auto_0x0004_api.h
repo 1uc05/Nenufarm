@@ -1,4 +1,4 @@
-/*============================================================================
+﻿/*============================================================================
 Filename : qtm_freq_hop_auto_api.h
 Project : QTouch Modular Library
 Purpose : Structs and definitions for use within modules
@@ -79,3 +79,4 @@ Notes  : none
 uint8_t qtm_get_freq_auto_module_ver(void);
 
 #endif /* TOUCH_API_CM0_FREQ_HOP_H */
+

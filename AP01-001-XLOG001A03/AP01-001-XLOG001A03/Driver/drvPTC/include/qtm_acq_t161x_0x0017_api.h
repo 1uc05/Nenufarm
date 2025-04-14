@@ -1,4 +1,4 @@
-/*============================================================================
+﻿/*============================================================================
 Filename : qtm_acq_t161x_0x0017_api.h
 Project : QTouch Modular Library
 Purpose : API for Acquisition module - TINY161x/PTC
@@ -339,3 +339,4 @@ Notes    :  none
 void qtm_t161x_ptc_handler_wcomp(void);
 
 #endif /* TOUCH_API_PTC_H */
+

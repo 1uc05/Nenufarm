@@ -1,9 +1,11 @@
-/* 
-* Handler.cpp
-*
-* Created: 12/01/2024 11:59:00
-* Author: LucasTeissier
-*/
+﻿/*! 
+ * \file         Handler.cpp
+ * \brief
+ * \author       Lucas TEISSIER
+ * \date         12/01/2024 11:59:00
+ * \warning
+ * Copyright (C) 2025 NENUFARM - See the file LICENSE for copying permission.
+ */
 
 #include "Handler.h"
 
@@ -31,3 +33,4 @@ void Handler::v_Handler_everyTime()
 
 void Handler::v_Handler_saveTimeInMemory() const
 {}
+

@@ -1,15 +1,11 @@
-/*!
- * \file 	drvUSART.cpp
- * \brief 	
- * \author 	Valentin DOMINIAK
- * \date	02/2024
+ï»¿/*!
+ * \file 		drvUSART.cpp
+ * \brief
+ * \author      Valentin DOMINIAK
+ * \date        01/2024
  * \warning
- * MIT License
- * This software is provided "as is", without warranty of any kind. The authors
- * shall not be liable for any claims, damages, or other liability arising from
- * the use of the software. See the LICENSE file for more details.
- * \version 	0.1 (02/2024)
-*/
+ * Copyright (C) 2025 NENUFARM - See the file LICENSE for copying permission.
+ */
 
 /*!==========================================================================+*/
 // FICHIERS HEADER
@@ -49,7 +45,7 @@
 /*+==========================================================================+*/
 void v_drvUSART_initialization(void)
 {
-	// Configuration à 9600 bauds
+	// Configuration Ã  9600 bauds
 	USART0.BAUD = (uint16_t)USART0_BAUD_RATE(115200);
 
 	// Activation de RX et TX
@@ -59,7 +55,7 @@ void v_drvUSART_initialization(void)
 	USART0.DBGCTRL = 1 << USART_DBGRUN_bp;
 
 	#ifdef DEBUG_MOD_LOG
-		// Définition des sorties texte en UART
+		// DÃ©finition des sorties texte en UART
 		stdout = &USART_0_stream;
 	#endif
 }
@@ -123,3 +119,4 @@ void v_drvUSART_writeString(const char *pc_str) {
 		USART0.TXDATAL = *pc_str++;
 	}
 }
+

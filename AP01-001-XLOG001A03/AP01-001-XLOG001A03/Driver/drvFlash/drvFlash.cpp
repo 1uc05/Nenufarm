@@ -1,15 +1,11 @@
-/*!
- * \file 	drvFlash.cpp
- * \brief 	
- * \author 	Valentin DOMINIAK
- * \date	01/2024
+ï»¿/*!
+ * \file 		drvFlash.cpp
+ * \brief
+ * \author      Valentin DOMINIAK
+ * \date        01/2024
  * \warning
- * MIT License
- * This software is provided "as is", without warranty of any kind. The authors
- * shall not be liable for any claims, damages, or other liability arising from
- * the use of the software. See the LICENSE file for more details.
- * \version 	0.1 (01/2024)
-*/
+ * Copyright (C) 2025 NENUFARM - See the file LICENSE for copying permission.
+ */
 
 /*!==========================================================================+*/
 // FICHIERS HEADER
@@ -44,10 +40,10 @@
 void v_drvFlash_initialization(void)
 {
 #ifndef DEBUG_MOD_NO_FLASH
-	// Protection en écriture désactivée, boot lock désactivé
+	// Protection en Ã©criture dÃ©sactivÃ©e, boot lock dÃ©sactivÃ©
 	NVMCTRL.CTRLB = 0 << NVMCTRL_APCWP_bp | 0 << NVMCTRL_BOOTLOCK_bp;
 	
-	// Pas d'interruption pour indiquer que la EEPROM est prête à une séquence de lecture ou écriture
+	// Pas d'interruption pour indiquer que la EEPROM est prÃªte Ã  une sÃ©quence de lecture ou Ã©criture
 	NVMCTRL.INTCTRL = 0 << NVMCTRL_EEREADY_bp;
 #endif
 }
@@ -75,8 +71,8 @@ UINT8 ui8_drvFlash_readEEPROMByte(UINT16 ui16_readAdress)
 /*!==========================================================================+*/
 /*+
  *  \brief      Ecriture d'un octet dans la EEPROM
- *  \param[in]  ui16_writeAdress	Adresse d'écriture
-				ui8_data			Donnée à écrire
+ *  \param[in]  ui16_writeAdress	Adresse d'Ã©criture
+				ui8_data			DonnÃ©e Ã  Ã©crire
  *  \param[out] none
  *  \return     none
  *  \author     Valentin DOMINIAK
@@ -87,16 +83,16 @@ UINT8 ui8_drvFlash_readEEPROMByte(UINT16 ui16_readAdress)
 void v_drvFlash_writeEEPROMByte(UINT16 ui16_writeAdress, const UINT8 ui8_data)
 {
 #ifndef DEBUG_MOD_NO_FLASH
-	// Attente que la EEPROM ne soit pas occupée
+	// Attente que la EEPROM ne soit pas occupÃ©e
 	while (NVMCTRL.STATUS & NVMCTRL_EEBUSY_bm);
 
-	// Effacage de la mémoire tampon de la page
+	// Effacage de la mÃ©moire tampon de la page
 	_PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEBUFCLR_gc);
 
-	// Ecriture de l'octet dans la mémoire tampon de la page
+	// Ecriture de l'octet dans la mÃ©moire tampon de la page
 	*(UINT8 *)(EEPROM_START + ui16_writeAdress) = ui8_data;
 
-	// Suppression de l'ancien octet et écriture du nouveau dans la EEPROM
+	// Suppression de l'ancien octet et Ã©criture du nouveau dans la EEPROM
 	_PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEERASEWRITE_gc);
 #endif
 }
@@ -105,8 +101,8 @@ void v_drvFlash_writeEEPROMByte(UINT16 ui16_writeAdress, const UINT8 ui8_data)
 /*+
  *  \brief      Lecture d'un block d'octets dans la EEPROM
  *  \param[in]  ui16_readAdress		Adresse de lecture
-				ui8_number			Nombre d'octets à lire
- *  \param[out] pui8_data			Buffer des données lues
+				ui8_number			Nombre d'octets Ã  lire
+ *  \param[out] pui8_data			Buffer des donnÃ©es lues
  *  \return     none
  *  \author     Valentin DOMINIAK
  *  \date       Creation: 04/2024
@@ -116,7 +112,7 @@ void v_drvFlash_writeEEPROMByte(UINT16 ui16_writeAdress, const UINT8 ui8_data)
 void v_drvFlash_readEEPROMBlock(UINT16 ui16_readAdress, UINT8 *pui8_data, const UINT8 ui8_number)
 {
 #ifndef DEBUG_MOD_NO_FLASH
-	// Attente que la EEPROM ne soit pas occupée
+	// Attente que la EEPROM ne soit pas occupÃ©e
 	while (NVMCTRL.STATUS & NVMCTRL_EEBUSY_bm);
 	
 	memcpy(pui8_data, (UINT8 *)(EEPROM_START + ui16_readAdress), ui8_number);
@@ -127,8 +123,8 @@ void v_drvFlash_readEEPROMBlock(UINT16 ui16_readAdress, UINT8 *pui8_data, const 
 /*+
  *  \brief      Ecriture d'un block d'octets dans la EEPROM
  *  \param[in]  ui16_readAdress		Adresse de lecture
-				pui8_data			Buffer des données à écrire
-				ui8_number			Nombre d'octets à lire
+				pui8_data			Buffer des donnÃ©es Ã  Ã©crire
+				ui8_number			Nombre d'octets Ã  lire
  *  \param[out] none
  *  \return     none
  *  \author     Valentin DOMINIAK
@@ -142,10 +138,10 @@ void v_drvFlash_writeEEPROMBlock(UINT16 ui16_writeAdress, UINT8 *pui8_data, cons
 	UINT8 ui8_actualByteNumber		= ui8_number;
 	UINT8 *pui8_actualWriteAdress	= (UINT8 *)(EEPROM_START + ui16_writeAdress);
 
-	// Attente que la EEPROM ne soit pas occupée
+	// Attente que la EEPROM ne soit pas occupÃ©e
 	while (NVMCTRL.STATUS & NVMCTRL_EEBUSY_bm);
 	
-	// Effacage de la mémoire tampon de la page
+	// Effacage de la mÃ©moire tampon de la page
 	_PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEBUFCLR_gc);
 
 	do {
@@ -153,9 +149,9 @@ void v_drvFlash_writeEEPROMBlock(UINT16 ui16_writeAdress, UINT8 *pui8_data, cons
 		*pui8_actualWriteAdress++ = *pui8_data++;
 		ui8_actualByteNumber--;
 		
-		// Si une page a été remplie ou que le dernier octet a été écrit
+		// Si une page a Ã©tÃ© remplie ou que le dernier octet a Ã©tÃ© Ã©crit
 		if ((((uintptr_t)pui8_actualWriteAdress % EEPROM_PAGE_SIZE) == 0) || (ui8_actualByteNumber == 0)) {
-			// Suppression des anciens octets et écriture des nouveaux
+			// Suppression des anciens octets et Ã©criture des nouveaux
 			_PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEERASEWRITE_gc);
 		}
 	} while (ui8_actualByteNumber != 0);	
@@ -165,7 +161,7 @@ void v_drvFlash_writeEEPROMBlock(UINT16 ui16_writeAdress, UINT8 *pui8_data, cons
 
 /*!==========================================================================+*/
 /*+
- *  \brief      Vérification si la EEPROM peut être écrite ou lue
+ *  \brief      VÃ©rification si la EEPROM peut Ãªtre Ã©crite ou lue
  *  \param[in]  none
  *  \param[out] none
  *  \return     false :	EEPROM indisponible
@@ -183,3 +179,4 @@ BOOL b_drvFlash_getEEPROMReadyFlag(void)
 	return (NVMCTRL.STATUS & (NVMCTRL_EEBUSY_bm | NVMCTRL_FBUSY_bm));
 #endif
 }
+

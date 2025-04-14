@@ -1,15 +1,11 @@
-/*!
- * \file 	drvHardware.cpp
- * \brief 	
- * \author 	Valentin DOMINIAK
- * \date	10/2023
+ï»¿/*!
+ * \file 		drvHardware.cpp
+ * \brief
+ * \author      Valentin DOMINIAK
+ * \date        01/2024
  * \warning
- * MIT License
- * This software is provided "as is", without warranty of any kind. The authors
- * shall not be liable for any claims, damages, or other liability arising from
- * the use of the software. See the LICENSE file for more details.
- * \version 	0.1 (10/2023)
-*/
+ * Copyright (C) 2025 NENUFARM - See the file LICENSE for copying permission.
+ */
 
 /*!==========================================================================+*/
 // FICHIERS HEADER
@@ -70,7 +66,7 @@ void v_drvHardware_clocksInitialization		(void);
 
 /*!==========================================================================+*/
 /*+
- *  \brief      Initialisation de base du µC, ports, horloges, IT, ...
+ *  \brief      Initialisation de base du uC, ports, horloges, IT, ...
  *  \param[in]  none
  *  \param[out] none
  *  \return     none
@@ -94,10 +90,10 @@ void v_drvHardware_initialization(void)
  *  \param[in] en_port			GPIO_PORTA = PORTA
  *								GPIO_PORTB = PORTB
  *								GPIO_PORTC = PORTC
- *  \param[in] ui8_pin			Numéro de l'IO
- *  \param[in] en_direction		PORT_DIRECION_INPUT		= IO en entrée
+ *  \param[in] ui8_pin			NumÃ©ro de l'IO
+ *  \param[in] en_direction		PORT_DIRECION_INPUT		= IO en entrÃ©e
  *								PORT_DIRECION_OUTPUT	= IO en sortie
- *								PORT_DIRECION_OFF		= Non utilisé
+ *								PORT_DIRECION_OFF		= Non utilisÃ©
  *  \param[out] none
  *  \return     none
  *  \author     Valentin DOMINIAK
@@ -165,13 +161,13 @@ void v_drvHardware_setPinDirection(const GPIO_PORT en_port, const UINT8 ui8_pin,
  *  \param[in] en_port			GPIO_PORTA = PORTA
  *								GPIO_PORTB = PORTB
  *								GPIO_PORTC = PORTC
- *  \param[in] ui8_pin			Numéro de l'IO
- *  \param[in] en_configuration	PORT_ISC_INTDISABLE_gc    = Pas d'interruption, le buffer digital d'entrée est activé
- *								PORT_ISC_BOTHEDGES_gc     = Interruption activée sur front montant/descendant
- *								PORT_ISC_RISING_gc        = Interruption activée sur front montant
- *								PORT_ISC_FALLING_gc       = Interruption activée sur front descendant
- *								PORT_ISC_INPUT_DISABLE_gc = Pas d'interruption, pas de buffer digital d'entrée
- *								PORT_ISC_LEVEL_gc         = Interruption activée sur un niveau bas
+ *  \param[in] ui8_pin			NumÃ©ro de l'IO
+ *  \param[in] en_configuration	PORT_ISC_INTDISABLE_gc    = Pas d'interruption, le buffer digital d'entrÃ©e est activÃ©
+ *								PORT_ISC_BOTHEDGES_gc     = Interruption activÃ©e sur front montant/descendant
+ *								PORT_ISC_RISING_gc        = Interruption activÃ©e sur front montant
+ *								PORT_ISC_FALLING_gc       = Interruption activÃ©e sur front descendant
+ *								PORT_ISC_INPUT_DISABLE_gc = Pas d'interruption, pas de buffer digital d'entrÃ©e
+ *								PORT_ISC_LEVEL_gc         = Interruption activÃ©e sur un niveau bas
  *  \param[out] none
  *  \return     none
  *  \author     Valentin DOMINIAK
@@ -208,8 +204,8 @@ void v_drvHardware_setPinConfiguration(const GPIO_PORT en_port, const UINT8 ui8_
  *  \param[in] en_port			GPIO_PORTA = PORTA
  *								GPIO_PORTB = PORTB
  *								GPIO_PORTC = PORTC
- *  \param[in] ui8_pin			Numéro de l'IO
- *  \param[in] en_pullMode		PORT_PULL_OFF = Pas de forçage à l'état haut
+ *  \param[in] ui8_pin			NumÃ©ro de l'IO
+ *  \param[in] en_pullMode		PORT_PULL_OFF = Pas de forÃ§age Ã  l'Ã©tat haut
  *								PORT_PULL_UP  = Activation d'une pull-up
  *  \param[out] none
  *  \return     none
@@ -258,13 +254,13 @@ void v_drvHardware_setPinPullMode(const GPIO_PORT en_port, const UINT8 ui8_pin, 
 
 /*!==========================================================================+*/
 /*+
- *  \brief     Changement d'état d'une IO
+ *  \brief     Changement d'Ã©tat d'une IO
  *  \param[in] en_port			GPIO_PORTA = PORTA
  *								GPIO_PORTB = PORTB
  *								GPIO_PORTC = PORTC
- *  \param[in] ui8_pin			Numéro de l'IO
- *  \param[in] b_value			true	= IO à l'état haut
- *								false	= IO à l'état bas
+ *  \param[in] ui8_pin			NumÃ©ro de l'IO
+ *  \param[in] b_value			true	= IO Ã  l'Ã©tat haut
+ *								false	= IO Ã  l'Ã©tat bas
  *  \param[out] none
  *  \return     none
  *  \author     Valentin DOMINIAK
@@ -304,14 +300,14 @@ void v_drvHardware_setPinValue(const GPIO_PORT en_port, const UINT8 ui8_pin, con
 
 /*!==========================================================================+*/
 /*+
- *  \brief     Changement d'état d'une IO
+ *  \brief     Changement d'Ã©tat d'une IO
  *  \param[in]	en_port			GPIO_PORTA = PORTA
  *								GPIO_PORTB = PORTB
  *								GPIO_PORTC = PORTC
- *  \param[in]	ui8_pin			Numéro de l'IO
+ *  \param[in]	ui8_pin			NumÃ©ro de l'IO
  *  \param[out]	none				
- *  \return						true	= IO à l'état haut
- *								false	= IO à l'état bas
+ *  \return						true	= IO Ã  l'Ã©tat haut
+ *								false	= IO Ã  l'Ã©tat bas
  *  \author     Valentin DOMINIAK
  *  \date       Creation: 10/2023
  *  \remarks
@@ -352,7 +348,7 @@ BOOL b_drvHardware_getPinValue(const GPIO_PORT en_port, const UINT8 ui8_pin)
 /*+==========================================================================+*/
 void v_drvHardware_portsInitialization(void)
 {
-	// Pull-up sur les pins non utilisées pour limiter la consommation PORTA
+	// Pull-up sur les pins non utilisÃ©es pour limiter la consommation PORTA
 	v_drvHardware_setPinPullMode(GPIO_PORTA, 0, PORT_PULL_MODE_UP);
 	v_drvHardware_setPinPullMode(GPIO_PORTA, 1, PORT_PULL_MODE_UP);
 	v_drvHardware_setPinPullMode(GPIO_PORTA, 2, PORT_PULL_MODE_UP);
@@ -381,47 +377,47 @@ void v_drvHardware_portsInitialization(void)
 	//v_drvHardware_setPinPullMode(GPIO_PORTC, 5, PORT_PULL_MODE_UP);
 	
 	
-	// RPM pompe PA3 en entrée, pas de pull-up
+	// RPM pompe PA3 en entrÃ©e, pas de pull-up
 	v_drvHardware_setPinDirection(GPIO_PORTA, 3, PORT_DIRECION_INPUT);
 	v_drvHardware_setPinPullMode(GPIO_PORTA, 3, PORT_PULL_MODE_OFF);
 	
-	// PWM aquarium PC4 en sortie à l'état bas par défaut
+	// PWM aquarium PC4 en sortie Ã  l'Ã©tat bas par dÃ©faut
 	v_drvHardware_setPinValue(GPIO_PORTC, 4, false);
 	v_drvHardware_setPinDirection(GPIO_PORTC, 4, PORT_DIRECION_OUTPUT);
 
-	// PWM plantes PB4 en sortie à l'état bas par défaut
+	// PWM plantes PB4 en sortie Ã  l'Ã©tat bas par dÃ©faut
 	v_drvHardware_setPinValue(GPIO_PORTB, 4, false);
 	v_drvHardware_setPinDirection(GPIO_PORTB, 4, PORT_DIRECION_OUTPUT);
 		
-	// PWM pompe PC5 en sortie à l'état bas par défaut
+	// PWM pompe PC5 en sortie Ã  l'Ã©tat bas par dÃ©faut
 	v_drvHardware_setPinValue(GPIO_PORTC, 5, false);
 	v_drvHardware_setPinDirection(GPIO_PORTC, 5, PORT_DIRECION_OUTPUT);
 	
-	// ADC drain aqua PC3, pas d'interruption, pas de buffer digital d'entrée (PORT_ISC_INPUT_DISABLE_gc), pas de pull-up
+	// ADC drain aqua PC3, pas d'interruption, pas de buffer digital d'entrÃ©e (PORT_ISC_INPUT_DISABLE_gc), pas de pull-up
 	v_drvHardware_setPinConfiguration(GPIO_PORTC, 3, PORT_ISC_INPUT_DISABLE_gc);
 	v_drvHardware_setPinPullMode(GPIO_PORTC, 3, PORT_PULL_MODE_OFF);
 	
-	// PTC aquarium PA5, pas d'interruption, pas de buffer digital d'entrée (PORT_ISC_INPUT_DISABLE_gc), pas de pull-up
+	// PTC aquarium PA5, pas d'interruption, pas de buffer digital d'entrÃ©e (PORT_ISC_INPUT_DISABLE_gc), pas de pull-up
 	v_drvHardware_setPinConfiguration(GPIO_PORTA, 5, PORT_ISC_INPUT_DISABLE_gc);
 	v_drvHardware_setPinPullMode(GPIO_PORTA, 5, PORT_PULL_MODE_OFF);
 		
-	// PTC plantes PC1, pas d'interruption, pas de buffer digital d'entrée (PORT_ISC_INPUT_DISABLE_gc), pas de pull-up
+	// PTC plantes PC1, pas d'interruption, pas de buffer digital d'entrÃ©e (PORT_ISC_INPUT_DISABLE_gc), pas de pull-up
 	v_drvHardware_setPinConfiguration(GPIO_PORTC, 1, PORT_ISC_INPUT_DISABLE_gc);
 	v_drvHardware_setPinPullMode(GPIO_PORTC, 1, PORT_PULL_MODE_OFF);
 	
-	// PGOOD 12VDC PA4 en entrée, pas de pull-up, interruption sur front descendant
+	// PGOOD 12VDC PA4 en entrÃ©e, pas de pull-up, interruption sur front descendant
 	v_drvHardware_setPinDirection(GPIO_PORTA, 4, PORT_DIRECION_INPUT);
 	v_drvHardware_setPinPullMode(GPIO_PORTA, 4, PORT_PULL_MODE_OFF);
 	v_drvHardware_setPinConfiguration(GPIO_PORTA, 4, PORT_ISC_FALLING_gc);
 	
-	// EN TESTA PC0 en entrée, pas de pull-up
+	// EN TESTA PC0 en entrÃ©e, pas de pull-up
 	v_drvHardware_setPinDirection(GPIO_PORTC, 0, PORT_DIRECION_INPUT);
 	v_drvHardware_setPinPullMode(GPIO_PORTC, 0, PORT_PULL_MODE_OFF);
 	
-	// SCL TESTA PB0 à configurer
+	// SCL TESTA PB0 Ã  configurer
 	v_drvHardware_setPinPullMode(GPIO_PORTB, 0, PORT_PULL_MODE_UP);
 	
-	// SDA TESTA PB1 à configurer
+	// SDA TESTA PB1 Ã  configurer
 	v_drvHardware_setPinPullMode(GPIO_PORTB, 1, PORT_PULL_MODE_UP);
 	
 	// Remapping PWM aquarium PC4 sur TCA0 WO4
@@ -459,14 +455,14 @@ void v_drvHardware_portsInitialization(void)
 /*+==========================================================================+*/
 void v_drvHardware_clocksInitialization(void)
 {
-	// Oscillateur externe 32.768kHz configuration 1k cycles de temps d'activation (CSUT = 0), activé (ENABLE = 1), selection du crystal externe (SEL = 0)
+	// Oscillateur externe 32.768kHz configuration 1k cycles de temps d'activation (CSUT = 0), activÃ© (ENABLE = 1), selection du crystal externe (SEL = 0)
 	_PROTECTED_WRITE(CLKCTRL.XOSC32KCTRLA, CLKCTRL_CSUT_1K_gc  | 1 << CLKCTRL_ENABLE_bp | 0 << CLKCTRL_RUNSTDBY_bp | 0 << CLKCTRL_SEL_bp);
 	 
-	// La valeur OSC_PRESCALER_REGISTER_VALUE est placée dans le registre concerné MCLKCTRLB et activation de la division
+	// La valeur OSC_PRESCALER_REGISTER_VALUE est placÃ©e dans le registre concernÃ© MCLKCTRLB et activation de la division
 	#ifdef OSC_PRESCALER_REGISTER_VALUE
 		_PROTECTED_WRITE(CLKCTRL.MCLKCTRLB, OSC_PRESCALER_REGISTER_VALUE | 1 << CLKCTRL_PEN_bp);
 	#else
-		// Par défaut, pas de division de la clock
+		// Par dÃ©faut, pas de division de la clock
 	#endif
 	
 	// Oscillateur interne de 20MHz
@@ -491,3 +487,4 @@ UINT32 ui32_drvHardware_getCPUClockFrequency(void)
 {
 	return (UINT32)(MAX_CPU_FREQUENCY / OSC_PRESCALER);
 }
+

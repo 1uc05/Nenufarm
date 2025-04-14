@@ -1,15 +1,11 @@
-/*!
- * \file 	drvUSART.h
- * \brief 	
- * \author 	Valentin DOMINIAK
- * \date 	02/2024
+﻿/*!
+ * \file 		drvUSART.h
+ * \brief
+ * \author      Valentin DOMINIAK
+ * \date        01/2024
  * \warning
- * MIT License
- * This software is provided "as is", without warranty of any kind. The authors
- * shall not be liable for any claims, damages, or other liability arising from
- * the use of the software. See the LICENSE file for more details.
- * \version 	0.1 (02/2024)
-*/
+ * Copyright (C) 2025 NENUFARM - See the file LICENSE for copying permission.
+ */
 
 #ifndef DRVUSART_H_
 #define DRVUSART_H_
@@ -42,3 +38,4 @@ void v_drvUSART_writeString		(const char *pc_str);
 }
 #endif // __cplusplus
 #endif /* DRVUSART_H_ */
+

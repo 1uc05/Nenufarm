@@ -1,4 +1,4 @@
-/*============================================================================
+﻿/*============================================================================
 Filename : qtm_acq_t321x_0x0017_api.h
 Project : QTouch Modular Library
 Purpose : API for Acquisition module - TINY3217/PTC
@@ -19,3 +19,4 @@ Copyright (c) 2019 Atmel. All rights reserved.
 #define qtm_acq_t321x_node_config_t qtm_acq_t161x_node_config_t
 
 #endif /* TOUCH_API_T3217_ACQ_MODULE_H */
+

@@ -1,15 +1,11 @@
-/*!
- * \file 	drvADC.h
- * \brief 	
- * \author 	Valentin DOMINIAK
- * \date 	10/2023
+﻿/*!
+ * \file 		drvADC.h
+ * \brief
+ * \author      Valentin DOMINIAK
+ * \date        01/2024
  * \warning
- * MIT License
- * This software is provided "as is", without warranty of any kind. The authors
- * shall not be liable for any claims, damages, or other liability arising from
- * the use of the software. See the LICENSE file for more details.
- * \version 	0.1 (10/2023)
-*/
+ * Copyright (C) 2025 NENUFARM - See the file LICENSE for copying permission.
+ */
 
 #ifndef DRVADC_H_
 #define DRVADC_H_
@@ -66,3 +62,4 @@ DRV_ADC_ERROR en_drvADC_initialization	(const ADC_CHANNEL en_channel, const ADC_
 DRV_ADC_ERROR en_drvADC_getInputValue	(const UINT8 ui8_instanceNumber, const UINT8 ui8_averageReading, UINT16 *pui16_value);
 
 #endif /* DRVADC_H_ */
+

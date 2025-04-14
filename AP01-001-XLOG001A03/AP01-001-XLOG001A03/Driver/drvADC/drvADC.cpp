@@ -1,15 +1,11 @@
-/*!
- * \file 	drvADC.cpp
- * \brief 	
- * \author 	Valentin DOMINIAK
- * \date	10/2023
+ï»¿/*!
+ * \file 		drvADC.cpp
+ * \brief
+ * \author      Valentin DOMINIAK
+ * \date        01/2024
  * \warning
- * MIT License
- * This software is provided "as is", without warranty of any kind. The authors
- * shall not be liable for any claims, damages, or other liability arising from
- * the use of the software. See the LICENSE file for more details.
- * \version 	0.1 (10/2023)
-*/
+ * Copyright (C) 2025 NENUFARM - See the file LICENSE for copying permission.
+ */
 
 /*!==========================================================================+*/
 // FICHIERS HEADER
@@ -33,8 +29,8 @@ struct DONNEES_ENTREE_ADC {
 	BOOL			b_enabled;
 };
 
-static DONNEES_ENTREE_ADC	ts_channelsCaract[MAX_ADC_INPUTS];				// Tableau de structures comprenant les caractéristiques de chaque sortie ADC
-static UINT8				ui8_instanceNumber = 0x00;						// Nombre incrémental du numero d'instance du driver ADC
+static DONNEES_ENTREE_ADC	ts_channelsCaract[MAX_ADC_INPUTS];				// Tableau de structures comprenant les caractÃ©ristiques de chaque sortie ADC
+static UINT8				ui8_instanceNumber = 0x00;						// Nombre incrÃ©mental du numero d'instance du driver ADC
 
 /*!==========================================================================+*/
 // PROTOTYPES
@@ -64,19 +60,19 @@ DRV_ADC_ERROR en_drvADC_initialization(const ADC_CHANNEL en_channel, const ADC_I
 		/* Verification du nombre d'instances ADC par rapport au nombre de sorties physiques */
 		if(ui8_instanceNumber < MAX_ADC_INPUTS) {
 				
-			/* Vérification si le numéro d'instance est correct */
+			/* VÃ©rification si le numÃ©ro d'instance est correct */
 			if(en_instance != ADC_INSTANCE_UNDEFINED) {
 	
-				/* Vérification si le numéro de channel est correct */
+				/* VÃ©rification si le numÃ©ro de channel est correct */
 				if(en_channel != ADC_CHANNEL_UNDEFINED) {
 		
-					/* Premiere initialisation, les configurations générales sont réalisées qu'une seule fois */
+					/* Premiere initialisation, les configurations gÃ©nÃ©rales sont rÃ©alisÃ©es qu'une seule fois */
 					if(ui8_instanceNumber == 0) {
 		
-						/* Initialisation de la structure liant la configuration souhaitée sur un channel et son numéro d'instance associé */
+						/* Initialisation de la structure liant la configuration souhaitÃ©e sur un channel et son numÃ©ro d'instance associÃ© */
 						v_drvADC_initializationStructChannelsCaract();
 		
-						/* Division de l'horloge /4 (ADC_PRESC_DIV4_gc), tension de référence Vdd (ADC_REFSEL_VDDREF_gc), impédance d'entrée recommandée pour la référence interne (ADC_SAMPCAP_bp) */
+						/* Division de l'horloge /4 (ADC_PRESC_DIV4_gc), tension de rÃ©fÃ©rence Vdd (ADC_REFSEL_VDDREF_gc), impÃ©dance d'entrÃ©e recommandÃ©e pour la rÃ©fÃ©rence interne (ADC_SAMPCAP_bp) */
 						ADC0.CTRLC |= ADC_PRESC_DIV4_gc | ADC_REFSEL_VDDREF_gc | ADC_SAMPCAP_bm;
 						ADC1.CTRLC |= ADC_PRESC_DIV4_gc | ADC_REFSEL_VDDREF_gc | ADC_SAMPCAP_bm;
 		
@@ -84,7 +80,7 @@ DRV_ADC_ERROR en_drvADC_initialization(const ADC_CHANNEL en_channel, const ADC_I
 						ADC0.DBGCTRL = 1 << ADC_DBGRUN_bp;
 						ADC1.DBGCTRL = 1 << ADC_DBGRUN_bp;
 		
-						/* Selection par défaut de l'entrée 0 */
+						/* Selection par dÃ©faut de l'entrÃ©e 0 */
 						ADC0.MUXPOS = ADC_MUXPOS_AIN0_gc;
 						ADC1.MUXPOS = ADC_MUXPOS_AIN0_gc;
 
@@ -92,32 +88,32 @@ DRV_ADC_ERROR en_drvADC_initialization(const ADC_CHANNEL en_channel, const ADC_I
 						ADC0.CTRLA |= ADC_ENABLE_bm | ADC_RESSEL_10BIT_gc;
 						ADC1.CTRLA |= ADC_ENABLE_bm | ADC_RESSEL_10BIT_gc;
 					} else {
-						/* Ce n'est pas la première fois que la fonction est appelée, vérification si la sortie à configurer n'est pas déjà utilisée */
+						/* Ce n'est pas la premiÃ¨re fois que la fonction est appelÃ©e, vÃ©rification si la sortie Ã  configurer n'est pas dÃ©jÃ  utilisÃ©e */
 						for(ui8_instanceNumberIterator = 0 ; ui8_instanceNumberIterator < MAX_ADC_INPUTS ; ui8_instanceNumberIterator++) {
 							if (en_channel == ts_channelsCaract[ui8_instanceNumberIterator].en_channel && en_instance == ts_channelsCaract[ui8_instanceNumberIterator].en_instance) {
 								en_codeError = DRV_ADC_ERROR_CHANNEL_ALREADY_USED;
-							} else {/* Ne rien faire, le channel n'est pas utilisé */}
+							} else {/* Ne rien faire, le channel n'est pas utilisÃ© */}
 						}
 					}
 	
 					/* S'il n'y a pas eu d'erreur */
 					if(en_codeError == DRV_ADC_ERROR_NO_ERROR) {
 				
-						/* Sauvegarde de la configuration correspondant au numéro d'instance venant d'être créé */
+						/* Sauvegarde de la configuration correspondant au numÃ©ro d'instance venant d'Ãªtre crÃ©Ã© */
 						ts_channelsCaract[ui8_instanceNumber].en_channel	= en_channel;
 						ts_channelsCaract[ui8_instanceNumber].en_instance	= en_instance;
 						ts_channelsCaract[ui8_instanceNumber].b_enabled		= true;
 
-						/* La valeur de l'instance du module ADC est retournée par le parametre d'entrée puis incrémenté pour la prochaine entrée à initialiser */
+						/* La valeur de l'instance du module ADC est retournÃ©e par le parametre d'entrÃ©e puis incrÃ©mentÃ© pour la prochaine entrÃ©e Ã  initialiser */
 						*pui8_instanceNumber = ui8_instanceNumber;
 						ui8_instanceNumber++;
-					} else {/* Nothing to do - Erreur code mis à jour */}
+					} else {/* Nothing to do - Erreur code mis Ã  jour */}
 				} else {
-					/* Erreur, le numéro de channel à configurer n'est pas définit */
+					/* Erreur, le numÃ©ro de channel Ã  configurer n'est pas dÃ©finit */
 					en_codeError = DRV_ADC_ERROR_CHANNEL_UNDEFINED;
 				}
 			} else {
-				/* Erreur, le numéro d'instance à configurer n'est pas définit */
+				/* Erreur, le numÃ©ro d'instance Ã  configurer n'est pas dÃ©finit */
 				en_codeError = DRV_ADC_ERROR_INSTANCE_UNDEFINED;
 			}
 		} else {
@@ -157,15 +153,15 @@ DRV_ADC_ERROR en_drvADC_getInputValue(const UINT8 ui8_instanceNumber, const UINT
 
 	if(pui16_value != NULL) {
 		
-		/* Vérification si la pin est configurée */
+		/* VÃ©rification si la pin est configurÃ©e */
 		if(ts_channelsCaract[ui8_instanceNumber].b_enabled){
 		
 			en_codeError = en_drvADC_selectChannel(ui8_instanceNumber);
 		
-			/* La sélection du channel a bien été faite */
+			/* La sÃ©lection du channel a bien Ã©tÃ© faite */
 			if(en_codeError == DRV_ADC_ERROR_NO_ERROR) {
 			
-				/* Récupération de/des valeur(s) sur l'entrée */
+				/* RÃ©cupÃ©ration de/des valeur(s) sur l'entrÃ©e */
 				while ((ui8_readings < ui8_averageReading) && (en_codeError == DRV_ADC_ERROR_NO_ERROR)) {
 					en_codeError = en_drvADC_getADCValue(ui8_instanceNumber, pui16_value);
 					ui32_accumulatedValue += *pui16_value;
@@ -175,10 +171,10 @@ DRV_ADC_ERROR en_drvADC_getInputValue(const UINT8 ui8_instanceNumber, const UINT
 				/* Pas d'erreur, calcul de la moyenne */
 				if(en_codeError == DRV_ADC_ERROR_NO_ERROR) {
 					*pui16_value = (UINT16)(ui32_accumulatedValue / ui8_averageReading);
-				} else {/* Nothing to do - Erreur code mis à jour */}
-			} else {/* Nothing to do - Erreur code mis à jour */}
+				} else {/* Nothing to do - Erreur code mis Ã  jour */}
+			} else {/* Nothing to do - Erreur code mis Ã  jour */}
 		} else {
-			/* Erreur, l'entrée ADC n'est pas activée */
+			/* Erreur, l'entrÃ©e ADC n'est pas activÃ©e */
 			en_codeError = DRV_ADC_ERROR_CHANNEL_NOT_USED;
 		}
 	} else {
@@ -217,10 +213,10 @@ DRV_ADC_ERROR en_drvADC_selectChannel(const UINT8 ui8_instanceNumber)
 		ADC_MUXPOS_AIN9_gc, ADC_MUXPOS_AIN10_gc, ADC_MUXPOS_AIN11_gc
 	};
 	
-	/* Vérification si l'entrée est configurée */
+	/* VÃ©rification si l'entrÃ©e est configurÃ©e */
 	if (ts_channelsCaract[ui8_instanceNumber].b_enabled) {
 		
-		/* Détermination du registre ADC en fonction de l'instance */
+		/* DÃ©termination du registre ADC en fonction de l'instance */
 		if (ts_channelsCaract[ui8_instanceNumber].en_instance == ADC_INSTANCE_0) {
 			pui8_muxPos = &ADC0.MUXPOS;
 		} else if (ts_channelsCaract[ui8_instanceNumber].en_instance == ADC_INSTANCE_1) {
@@ -229,12 +225,12 @@ DRV_ADC_ERROR en_drvADC_selectChannel(const UINT8 ui8_instanceNumber)
 			en_codeError = DRV_ADC_ERROR_INSTANCE_UNDEFINED;
 		}
 
-		/* Configuration du canal ADC si nécessaire */
+		/* Configuration du canal ADC si nÃ©cessaire */
 		if (en_codeError == DRV_ADC_ERROR_NO_ERROR) {
 			if (*pui8_muxPos != ui8_muxPosValues[ts_channelsCaract[ui8_instanceNumber].en_channel]) {
 				*pui8_muxPos = ui8_muxPosValues[ts_channelsCaract[ui8_instanceNumber].en_channel];
-			} else {/* Nothing to do - Le multiplexeur est déjà configuré sur la bonne entrée */}
-		} else {/* Nothing to do - Erreur, code mis à jour */}
+			} else {/* Nothing to do - Le multiplexeur est dÃ©jÃ  configurÃ© sur la bonne entrÃ©e */}
+		} else {/* Nothing to do - Erreur, code mis Ã  jour */}
 	} else {
 		en_codeError = DRV_ADC_ERROR_CHANNEL_NOT_USED;
 	}
@@ -265,15 +261,15 @@ DRV_ADC_ERROR en_drvADC_getADCValue(const UINT8 ui8_instanceNumber, UINT16 *pui1
 				/* Lancement de la conversion sur l'ADC0 */
 				ADC0.COMMAND = ADC_STCONV_bm;
 		
-				/* Tant que la conversion n'est pas terminée */
+				/* Tant que la conversion n'est pas terminÃ©e */
 				while(!(ADC0.INTFLAGS & ADC_RESRDY_bm) && (ui32_timeout < ADC_READING_TIMEOUT)){ui32_timeout++;};
 		
-				/* Vérification du timeout */
+				/* VÃ©rification du timeout */
 				if (ui32_timeout < ADC_READING_TIMEOUT) {
-					/* La conversion est terminée, remise à 0 du flag l'indiquant */
+					/* La conversion est terminÃ©e, remise Ã  0 du flag l'indiquant */
 					ADC0.INTFLAGS = ADC_RESRDY_bm;
 				
-					/* Récupération du résultat de la conversion, RES = 1023*Vin/Vref */
+					/* RÃ©cupÃ©ration du rÃ©sultat de la conversion, RES = 1023*Vin/Vref */
 					*pui16_value = ADC0.RES;
 				} else {
 					en_codeError = DRV_ADC_ERROR_READING_TIMEOUT;
@@ -283,15 +279,15 @@ DRV_ADC_ERROR en_drvADC_getADCValue(const UINT8 ui8_instanceNumber, UINT16 *pui1
 				/* Lancement de la conversion sur l'ADC1 */
 				ADC1.COMMAND = ADC_STCONV_bm;
 					
-				/* Tant que la conversion n'est pas terminée */
+				/* Tant que la conversion n'est pas terminÃ©e */
 				while(!(ADC1.INTFLAGS & ADC_RESRDY_bm) && (ui32_timeout < ADC_READING_TIMEOUT)){ui32_timeout++;};
 					
-				/* Vérification du timeout */
+				/* VÃ©rification du timeout */
 				if (ui32_timeout < ADC_READING_TIMEOUT) {
-					/* La conversion est terminée, remise à 0 du flag l'indiquant */
+					/* La conversion est terminÃ©e, remise Ã  0 du flag l'indiquant */
 					ADC1.INTFLAGS = ADC_RESRDY_bm;
 									
-					/* Récupération du résultat de la conversion, RES = 1023*Vin/Vref */
+					/* RÃ©cupÃ©ration du rÃ©sultat de la conversion, RES = 1023*Vin/Vref */
 					*pui16_value = ADC1.RES;
 				} else {
 					en_codeError = DRV_ADC_ERROR_READING_TIMEOUT;	
@@ -331,3 +327,4 @@ void v_drvADC_initializationStructChannelsCaract(void)
 		ts_channelsCaract[ui8_channelNumber].b_enabled		= false;
 	}
 }
+

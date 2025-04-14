@@ -1,15 +1,11 @@
-/*!
- * \file 	drvPTC.c
- * \brief 	
- * \author 	Valentin DOMINIAK
- * \date	01/2024
+﻿/*!
+ * \file 		drvPTC.c
+ * \brief
+ * \author      Valentin DOMINIAK
+ * \date        01/2024
  * \warning
- * MIT License
- * This software is provided "as is", without warranty of any kind. The authors
- * shall not be liable for any claims, damages, or other liability arising from
- * the use of the software. See the LICENSE file for more details.
- * \version 	0.1 (01/2024)
-*/
+ * Copyright (C) 2025 NENUFARM - See the file LICENSE for copying permission.
+ */
 
 #ifndef TOUCH_C
 #define TOUCH_C
@@ -339,3 +335,4 @@ ISR(ADC0_RESRDY_vect)
 }
 
 #endif /* TOUCH_C */
+

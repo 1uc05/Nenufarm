@@ -1,4 +1,4 @@
-/*============================================================================
+﻿/*============================================================================
 Filename : qtm_common_components_api.h
 Project : QTouch Modular Library
 Purpose : Stucts and definitions for use within modules
@@ -209,3 +209,4 @@ typedef struct {
 #define SCROLLER_TYPE_WRAPAROUND 2u
 
 #endif /* __QTM_QPI_COMMON_*/
+

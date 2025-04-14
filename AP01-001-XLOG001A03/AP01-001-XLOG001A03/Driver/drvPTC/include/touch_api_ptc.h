@@ -1,4 +1,4 @@
-
+﻿
 /*============================================================================
 Filename : touch_api_ptc.h
 Project : QTouch Modular Library
@@ -42,3 +42,4 @@ extern "C" {
 #endif
 
 #endif /* TOUCH_API_PTC_H */
+

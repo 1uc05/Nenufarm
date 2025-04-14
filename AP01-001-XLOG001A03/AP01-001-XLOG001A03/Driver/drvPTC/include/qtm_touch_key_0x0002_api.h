@@ -1,4 +1,4 @@
-/*============================================================================
+﻿/*============================================================================
 Filename : qtm_touch_key_api.h
 Project : QTouch Modular Library
 Purpose : Structs and definitions for use within modules
@@ -194,3 +194,4 @@ Notes  : none
 uint8_t qtm_get_touch_keys_module_ver(void);
 
 #endif /* TOUCH_API_PTC_H */
+

@@ -1,15 +1,11 @@
-/*!
- * \file 	drvPWM.h
- * \brief 	
- * \author 	Valentin DOMINIAK
- * \date 	10/2023
+﻿/*!
+ * \file 		drvPWM.h
+ * \brief
+ * \author      Valentin DOMINIAK
+ * \date        01/2024
  * \warning
- * MIT License
- * This software is provided "as is", without warranty of any kind. The authors
- * shall not be liable for any claims, damages, or other liability arising from
- * the use of the software. See the LICENSE file for more details.
- * \version 	0.1 (10/2023)
-*/
+ * Copyright (C) 2025 NENUFARM - See the file LICENSE for copying permission.
+ */
 
 #ifndef DRVPWM_H_
 #define DRVPWM_H_
@@ -55,3 +51,4 @@ DRV_PWM_ERROR en_drvPWM_initialization	(const PWM_CHANNEL en_channel, const UINT
 DRV_PWM_ERROR en_drvPWM_changeDutyCycle	(const UINT8 ui8_instanceNumber, const UINT8 ui8_dutyCycle);
 
 #endif /* DRVPWM_H_ */
+
